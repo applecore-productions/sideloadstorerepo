@@ -10,7 +10,7 @@
 <key>kind</key>
 <string>software-package</string>
 <key>url</key>
-<string>https://github.com/applecore-productions/sideloadstorerepo/releases/download/4/Delta-SS_1.3_1629419774.ipa</string>
+<string>https://github.com/applecore-productions/sideloadstorerepo/releases/download/4/reKairos-SS_16.0.1_1629251374.ipa</string>
 </dict>
 </array>
 <key>metadata</key>
@@ -22,7 +22,7 @@
 <key>kind</key>
 <string>software</string>
 <key>title</key>
-<string>Delta</string>
+<string>ReKarios</string>
 </dict>
 </dict>
 </array>
