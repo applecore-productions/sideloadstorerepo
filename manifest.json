@@ -1,12 +1,12 @@
 {
-  "name": "sideloadstore",
-  "short_name": "sideloadstore",
-  "description": "sideloadstore",
+  "name": "Sideload Store",
+  "short_name": "Sideload Store",
+  "description": "Sideload Store",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#126924",
-  "theme_color": "#126924",
+  "background_color": "#0b4584",
+  "theme_color": "#0b4584",
   "icons": [
     {
       "src": "/assets/icons/128x128.png",

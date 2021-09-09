@@ -2,14 +2,21 @@
 <html>
 <head>
   <meta charset="utf-8">
-
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+      * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
   <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 
   <meta name="theme-color" content="#212121">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>sideloadstore</title>
+  <title>Sideload Store</title>
   
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,11 +29,111 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div id="app"class="theme-dark">
+  <div id="app" class="theme-dark">
+    
+    <!-- Views/Tabs container -->
+    <div class="views tabs safe-areas">
+      <!-- Tabbar for switching views-tabs -->
+      <div class="toolbar toolbar-bottom tabbar-labels">
+        <div class="toolbar-inner">
+          <a href="#view-home" class="tab-link tab-link-active">
+            <i class="icon f7-icons if-not-md">house_fill</i>
+            <i class="icon material-icons if-md">home</i>
+            <span class="tabbar-label">Home</span>
+          </a>
+          <a href="#view-Signed" class="tab-link">
+            <i class="icon f7-icons if-not-md">square_list_fill</i>
+            <i class="icon material-icons if-md">view_list</i>
+            <span class="tabbar-label">Signed</span>
+          </a>
+          <a href="#view-FFapple" class="tab-link">
+            <i class="icon f7-icons if-not-md">square_list_fill</i>
+            <i class="icon material-icons if-md">settings</i>
+            <span class="tabbar-label">FFapple</span>
+          </a>
+        </div>
+      </div>
 
-    <!-- Your main view, should have "view-main" class -->
-    <div class="view view-main view-init safe-areas">
-      <div class="page" data-name="home">
+           <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+      <div id="view-home" class="view view-main view-init tab tab-active">
+        <div class="page" data-name="home">
+          <!-- Top Navbar -->
+          <div class="navbar navbar-large">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="left">
+                </a>
+              </div>
+              <div class="title sliding">Sideload Store</div>
+              <div class="right">
+                </a>
+              </div>
+              <div class="title-large">
+                <div class="title-large-text">Sideload Store</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <div class="block block-strong">
+               <p>Welcome to Sideload Store, a seemless and reliable place for all your tweaked apps</p>
+
+              <p>If the FFapple certs have revoked on your device or you have been blacklisted, follow this tutorial to get your apps working again
+
+              1.  Create an icloud backup of your device in settings.
+              2.  Erase all contents and settings from your device by going to settings > general > reset > erase all content and settings 
+              3.  Enable FFapple. </p>
+            
+
+
+              <p>How to set up FFapple, 1.  Download DNScloak from the AppStore and the links needed to enable FFapple (sideloadstore.ga/FFapple.zip). 2.  Open DNScloak and choose the "adguard-dns" server.  3. Enable blacklist by going to the setting icon in the top right and scrolling down to blacklist (make sure connect on demand is turned ON).  Turn on blacklist and pick either the antirevoke or install apps file depending on your use.<p>
+            </div>
+            <div class="block-title">Info</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <a href="https://rickroll.ga" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">Support Me (soon)</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/appl3c0r" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">My Twitter</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="block-title">Panels</div>
+            <div class="block block-strong">
+              <div class="row">
+                <div class="col-50">
+                  <a href="https://twitter.com/getssapp" class="button button-raised button-fill panel-open" data-panel="left">Twitter</a>
+                </div>
+                <div class="col-50">
+                  <a href="https://discord.gg/Xkbxc9CZS3" class="button button-raised button-fill panel-open" data-panel="right">Discord Server</a>
+                </div>
+              </div>
+            </div>
+            <div class="list links-list">
+              <ul>
+                <li>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Catalog View -->
+      <div id="view-Signed" class="view view-init tab" data-name="Signed" data-url="/Signed/">
+        <!-- Catalog page will be loaded here dynamically from /catalog/ route -->
+          <div class="page" data-name="home">
         <!-- Top Navbar -->
         <div class="navbar navbar-large">
           <div class="navbar-bg"></div>
@@ -120,8 +227,48 @@
                   </div>
                   <div class="item-subtitle">Jailbreaks</div>
                   <div class="item-text"></div>
-                </div> 
-             <li>
+                </div>
+              </div>
+              </div>
+              </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Settings View -->
+      <div id="view-FFapple" class="view view-init tab" data-name="FFapple" data-url="/FFapple/">
+        <!-- Settings page will be loaded here dynamically from /settings/ route -->
+          <div class="page" data-name="home">
+        <!-- Top Navbar -->
+        <div class="navbar navbar-large">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner">
+   
+            <div class="title-large">
+              <div class="title-large-text">Sideload Store</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scrollable page content-->
+        <div class="page-content">
+          <div class="searchbar-backdrop"></div>
+          <form class="searchbar searchbar-init" data-search-container=".app-list" data-search-in=".item-title">
+            <div class="searchbar-inner">
+              <div class="searchbar-input-wrap">
+                <input type="search" placeholder="Search" />
+                <i class="searchbar-icon"></i>
+                <span class="input-clear-button"></span>
+              </div>
+              <span class="searchbar-disable-button">Cancel</span>
+            </div>
+          </form>
+
+       
+        <div class="list media-list app-list">
+          <ul>
+            <li>
+              <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/youtubereborn.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/youtube.png" />
@@ -186,7 +333,7 @@
                   <div class="item-subtitle">Tweaked Apps</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Delta.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/Delta.PNG" />
@@ -199,7 +346,7 @@
                   <div class="item-subtitle">Emulators</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/ReKarios.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/Rekarios.JPG" />
@@ -211,8 +358,8 @@
                   </div>
                   <div class="item-subtitle">Tweaked Games</div>
                   <div class="item-text"></div>
-                </div>    		
-					<li>
+                </div>        
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Dolphin.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/dolphin.png" />
@@ -225,7 +372,7 @@
                   <div class="item-subtitle">Emulators</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/INDS.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/inds.png" />
@@ -238,7 +385,7 @@
                   <div class="item-subtitle">Emulators</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/ITransmission.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/itransmission.png" />
@@ -250,8 +397,8 @@
                   </div>
                   <div class="item-subtitle">Tweaked Apps</div>
                   <div class="item-text"></div>
-                </div>    		
-					<li>
+                </div>        
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Minecraft_lite.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/minecraft.png" />
@@ -264,7 +411,7 @@
                   <div class="item-subtitle">Tweaked Games</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/NDS4IOS.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/inds.png" />
@@ -278,7 +425,7 @@
                   <div class="item-text"></div>
                 </div>    
 
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/RootlessJB4.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/rootless.png" />
@@ -291,7 +438,7 @@
                   <div class="item-subtitle">Jailbreak</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/UTM.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/utm.png" />
@@ -304,7 +451,7 @@
                   <div class="item-subtitle">Emulators</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Byte++.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/byte.jpeg" />
@@ -317,7 +464,7 @@
                   <div class="item-subtitle">Tweaked Apps</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Doubleh3lix.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/doubleh3lix.png" />
@@ -330,7 +477,7 @@
                   <div class="item-subtitle">Jailbreaks</div>
                   <div class="item-text"></div>
                 </div>    
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/H3lix.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/h3lix.png" />
@@ -343,7 +490,7 @@
                   <div class="item-subtitle">Jailbreaks</div>
                   <div class="item-text"></div>
                 </div>    
-				<li>
+        <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Phonex.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/phonex.png" />
@@ -369,7 +516,7 @@
                   <div class="item-subtitle">Jailbreaks</div>
                   <div class="item-text"></div>
                 </div>      
-					<li>
+          <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Chimera.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/chimera.jpeg" />
@@ -380,9 +527,9 @@
                    <div class="item-after"><span class="badge color-yellow">FFapple</span></div>
                   </div>
                   <div class="item-subtitle">Jailbreaks</div>
-                  <div class="item-text"</div>
+                  <div class="item-text"></div>
                 </div>      
-						<li>
+            <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Odyssey.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/odyssey.jpg" />
@@ -395,7 +542,7 @@
                   <div class="item-subtitle">Jailbreaks</div>
                   <div class="item-text"></div>
                 </div>      
-						<li>
+            <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Taurine.plist'" class="item-content">
                 <div class="item-media">
                   <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/taurine.jpeg" />
@@ -407,7 +554,7 @@
                   </div>
                   <div class="item-subtitle">Jailbreaks</div>
                   <div class="item-text">1.1.0</div>
-                </div>      	              
+                </div>                      
               <li>
               <div onclick="location='itms-services://?action=download-manifest&url=https://sideloadstore.ga/jsons/Unc0ver.plist'" class="item-content">
                 <div class="item-media">
@@ -474,618 +621,14 @@
                   <div class="item-text">p</div>
                 </div>
                <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Likee.3.50.3.Heart.v1.2.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/hfl.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Heart for Likee</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Heart is a tweak built for the iOS Likee app which adds a number of new features to the app and brings many important improvements. With this tweak, you can easily save your favorite Likee videos. Here are all the features added by this app</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/GBox_v2.9.8_2.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/gbox.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">GBox</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">App Signer</div>
-                  <div class="item-text">Another way to install any IPA you want</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/brandonplank/flappybird/releases/download/3.8/org.brandonplank.flappybird.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/flappybird.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Flappy Bird</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Games</div>
-                  <div class="item-text">Flappy Bird updated for the latest iphones.</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Bloons-TD-6-Hack.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/btd.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">bloons btd 6 hack</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Games</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://download.cokernutx.com/ipadownload/Candy-Crush-Saga-Hack.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/CandyCrushSaga.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Candy Crush Saga Hack</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Games</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/tutubox.ipa.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/tutu.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Tutubox</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">tutubox...?</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/amongus.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/amongus.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Among Us</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Games</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/8BallPoolHack.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/8ball.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">8ballpoolHack</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Games</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/luna.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/lunavpn.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Luna VPN</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">best VPN to block ads with</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/channels.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/channels.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Channels</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Tumblr.17.7.Bear.v1.2.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/tumbler.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Tumblr bear</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://zinitevi.github.io/movieapps/apps/zinitevi_adhoc.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/zt.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">ZiniTevi</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">ZiniTevi is a great movie app offering access to your favorited videos and TV shows on iOS for free. The app offers full support for AirPlay allowing you to cast videos directly to any device connected to Apple TV. You can also cast videos to DLNA devices, or Google Chromecast.</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/rocket_v3.7.20.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/instagram.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Instagram Rocket</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/crunchyroll-plus.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/crunchyroll.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Crunchyroll++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/InstaShot.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/inshot.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">InShot Hack</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/iNDS.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/inds.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">INDS</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Emulators</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/PicsArt.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/picart.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">"PicsArt++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/ComicBox-SideloadStore.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/comicbox.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">ComicBox</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/iTorrent.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/itorrent.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">iTorrent</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://ipogo.app/download/ipogo-1.9.7.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/ipogo.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">ipogo</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-                <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/PlankFilza.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/filza.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Plank Filza</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text"></div>
-                </div>
-                <li>
-              <div onclick="location='altstore://install?url=https://eonhubapp.com/free/ipas/appinstaller.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/appinstaller.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">App Intsaller</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">IPA Signer</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https:https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Facebook%20(306.0)%20Wolf%20v1.9.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/facebook.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Facebook Wolf</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Tweaked Facebook.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Youtube.16.16.3.Bat.v1.8.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/youtube.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Youtube Bat</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">A youtube app the dosn't contain any video ads.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Messenger%20(300.0)%20Shark%20v2.0.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/messanger.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Messanger Shark</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">A powerful tweak for Messenger.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://download.cokernutx.com/ipadownload/Subway-Surfers-Hack.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/ss.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Subway Surfers Hack</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Game</div>
-                  <div class="item-text">The best way to play Subway Surfers</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Cercube.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/spotify.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Spotify++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Extra features on spotify.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://github.com/utmapp/UTM/releases/download/v2.1.2/UTM.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/utm.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">UTM</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Emulators</div>
-                  <div class="item-text">Run virtual machines on iOS.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Deezer++.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/deezer.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Deezer++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">A music app ipa archived from PlusPlus Box.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/DolphiniOS-3.1.1-129.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/dolphin.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Dolphin</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Emulator</div>
-                  <div class="item-text">DolphiniOS is an emulator that allows you to play your favourite GameCube and Wii games right from your iPhone. It is based on the popular Dolphin emulator for iOS, but comes with improved features such as save stats and better resolutions.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/net.whatsapp.WhatsApp_v2.21.10_watusi_1.3.17_stalky_4.1.7.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/whatsapp.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Whatsapp++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">WhatsApp Watusi brings a bunch of useful new features to WhatsApp.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=hhttps://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Triller%20(19.1)%20Turtle%20v1.2.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/triller.jpeg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Triller++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Triller++, aka Turtle for Triller, is a tweaked app that brings a number of useful new features to the Triller app. Here's a list of some of the features offered by this app</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Byte-plus-1.1.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/byte.jpeg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Byte++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Byte++ is a tweak that adds a number of useful new features to the iOS Byte app. It doesn't require a jailbreak and can be installed easily via a sideloading tool such as AltStore.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/Twitch-plus-v1.1.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/twitch.jpeg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">twitch++</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Twitch++ is a tweak for the iOS Twitch app which brings a few interesting and useful new features to the app.</div>
-                </div>
-                 <li>
-              <div onclick="location='altstore://install?url=https://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/GB5.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/geekbench.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Geekbench 5</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">An easy way to take benchmarks of your device</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?urlhttps://gitlab.com/applecore-productions/projectsideloadstore/-/raw/master/iDos2.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/idos2.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">IDOS 2</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Emulator</div>
-                  <div class="item-text">an emulator archived from the Tutu Box IPA library when in opporation</div>
-                </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Better_Cercube_16.27.3_.5.2.27.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/youtube.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Cercube</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">A youtube app the dosn't contain any video ads.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/ESign_4.1.0_1627881911.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/esign.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">ESign</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">App Signer</div>
-                  <div class="item-text">Easily sign and install your own apps with a certificate</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Instagram.187.0.Rhino.v3.8.1.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/instagram.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Instagram Rhino</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">A more informative instagram app.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Reddit.2021.12.0.Lizard.v1.9.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/reddit.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Reddit Lizzard</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">A simple, powerful tool for Reddit.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=\https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/TikTok.19.3.Unicorn.v5.2.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/tiktok.jpeg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">TikTok Unicorn</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">TikTok++ is an amazing tweak that adds a bunch of new features to the TikTok app such as: For You: Download Videos, Following Page enhancements, Hide all buttons and text views for all videos, Comment more than 90 characters for all videos, Present the download button in For You page, Perform all share actions.    User:, Download User's Profile Image, Show date created for all videos, View Private or Under Review video comments, Spoof Following, Fan and Hearts stats, Display the region for all Users, Display User's region, age and video upload count, Sort user's videos by Likes in descending order, Sort user's Liked videos in descending order, Other:, Upload videos up to 30min. length, Join live streams 24/7, Removed TikTok Ads.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/applecore-productions/sideloadstorerepo/releases/download/0.0.2/Twitter.8.65.Owl.v1.7.1.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/twitter.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Twitter Owl</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Tweaked Apps</div>
-                  <div class="item-text">Twitter Owl is a tweak for the iOS Twitter app that introduces new features and enhancements such as:, Save videos, Disable Twitter Ads, View confirmation prompt when liking tweets, Authentication Mode: protect the app with Face ID authentication</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/Odyssey-Team/Taurine/releases/download/1.0.4/Taurine-1.0.6.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/taurine.jpeg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Taurine</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Jailbreaks</div>
-                  <div class="item-text">Taurine is a fast, supercharged experience, using libhooker and extensive testing to ensure the best possible jailbreaking experience.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://unc0ver.dev/downloads/6.2.0/15e18e455ca3971433261443a42355ee883a2092/unc0ver_Release_6.2.0.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/unc0ver.png" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Unc0ver</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Jailbreaks</div>
-                  <div class="item-text">unc0ver is a jailbreak, which means that you can have the freedom to do whatever you would like to do to your iOS device. Allowing you to change what you want and operate within your purview, unc0ver unlocks the true power of your iDevice.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/Odyssey-Team/Odyssey/releases/download/1.3.3/Odyssey-1.3.3.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/odyssey.jpg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Odyssey</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Jailbreaks</div>
-                  <div class="item-text">A new jailbreak for a new era.</div>
-                </div>
-              </div>
-               <li>
-              <div onclick="location='altstore://install?url=https://github.com/coolstar/electra-ipas/raw/master/chimera/1.6.2-12.2-12.5.ipa'" class="item-content">
-                <div class="item-media">
-                  <img style="width: 60px; height: 60px; border-radius: 30%;" src="img/chimera.jpg" />
-                </div>
-                <div class="item-inner">
-                  <div class="item-title-row">
-                    <div class="item-title">Chimera</div>
-                    <div class="item-after"><span class="badge color-blue">Altstore</span></div>
-                  </div>
-                  <div class="item-subtitle">Jailbreaks</div>
-                  <div class="item-text">Chimera is the first true iOS 12 jailbreak to not only feature a CoreTrust bypass so that binaries don't need to be resigned, but to also support A12 devices, including iPhone Xs, iPhone Xr, and the newest iPads. Chimera doesn't tamper with user files, making it safer than alternatives.</div>
                 </div>
               </div>
               </div>
               </div>
           </ul>
         </div>
- 
+      </div>
+    </div>
 
 
     <!-- Popup -->

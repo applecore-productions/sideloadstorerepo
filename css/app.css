@@ -1,9 +1,9 @@
 /* Custom color theme properties */
 :root {
-  --f7-theme-color: #126924;
-  --f7-theme-color-rgb: 18, 105, 36;
-  --f7-theme-color-shade: #0c4618;
-  --f7-theme-color-tint: #188c30;
+  --f7-theme-color: #0b4584;
+  --f7-theme-color-rgb: 11, 69, 132;
+  --f7-theme-color-shade: #08315e;
+  --f7-theme-color-tint: #0e59aa;
 }
 
 /* Your app custom styles here */

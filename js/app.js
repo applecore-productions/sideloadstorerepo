@@ -2,8 +2,8 @@ var $ = Dom7;
 
 
 var app = new Framework7({
-  name: 'sideloadstore', // App name
-  theme: 'ios', // Automatic theme detection
+  name: 'Sideload Store', // App name
+  theme: 'auto', // Automatic theme detection
   el: '#app', // App root element
 
 

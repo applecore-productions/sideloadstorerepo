@@ -12,7 +12,18 @@ var routes = [
     path: '/form/',
     url: './pages/form.html',
   },
-
+  {
+    path: '/catalog/',
+    componentUrl: './pages/catalog.html',
+  },
+  {
+    path: '/product/:id/',
+    componentUrl: './pages/product.html',
+  },
+  {
+    path: '/settings/',
+    url: './pages/settings.html',
+  },
 
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
